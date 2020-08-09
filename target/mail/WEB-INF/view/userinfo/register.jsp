@@ -53,22 +53,36 @@
                 Bootstrap.alert("两次密码不一致");
                 return;
             }
-            var obj = {
-                url:"./RegisterServlet",
-                type:"post",
-                data:values,
+            var obj ={
+                url:"./UniqueServlet?user_name="+userName,
+                data: values,
                 success:function (data) {
+                    console.log(data);
+                    if (data=="0"){
+                        Bootstrap.tip("用户名已存在,注册失败");
+                        return;
+                    }
                     if (data=="1"){
-                        Bootstrap.tip("注册成功");
-                        setTimeout("toLogin()",3000);
-                        return;
+                        obj = {
+                            url:"./RegisterServlet",
+                            type:"post",
+                            data:values,
+                            success:function (data) {
+                                if (data=="1"){
+                                    Bootstrap.tip("注册成功");
+                                    setTimeout("toLogin()",3000);
+                                    return;
+                                } else {
+                                    Bootstrap.tip("注册失败");
+                                    return;
+                                }
+                            }
+                        };
+                        $.ajax(obj);
                     }
-                    else {
-                        Bootstrap.tip("注册失败");
-                        return;
-                    }
+
                 }
-            };
+            }
             $.ajax(obj);
         }
     </script>
