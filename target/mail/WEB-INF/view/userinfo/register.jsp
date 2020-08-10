@@ -57,7 +57,6 @@
                 url:"./UniqueServlet?user_name="+userName,
                 data: values,
                 success:function (data) {
-                    console.log(data);
                     if (data=="0"){
                         Bootstrap.tip("用户名已存在,注册失败");
                         return;
