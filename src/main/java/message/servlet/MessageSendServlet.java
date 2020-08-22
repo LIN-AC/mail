@@ -20,6 +20,9 @@ public class MessageSendServlet extends HttpServlet {
         String toUser = request.getParameter("toUser");//获取收件人
         String subject = request.getParameter("subject");//获取主题
         String content = request.getParameter("content");//获取邮件内容
+        System.out.println(toUser);
+        System.out.println(subject);
+        System.out.println(content);
         //获取session数据
         UserInfo userInfo = (UserInfo) request.getSession().getAttribute("userInfo");
         String userName = userInfo.getUserName();
@@ -35,6 +38,7 @@ public class MessageSendServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("111111");
 
     }
 }

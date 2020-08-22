@@ -4,7 +4,7 @@ public class UserInfo {
     private String id;
     private String userName;
     private String password;
-    private String profile;
+    private String imageName;
 
     public UserInfo() {
     }
@@ -13,15 +13,15 @@ public class UserInfo {
         this.id = id;
         this.userName = userName;
         this.password = password;
-        this.profile = profile;
+        this.imageName = profile;
     }
 
-    public String getProfile() {
-        return profile;
+    public String getImageName() {
+        return imageName;
     }
 
-    public void setProfile(String profile) {
-        this.profile = profile;
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 
     public String getId() {

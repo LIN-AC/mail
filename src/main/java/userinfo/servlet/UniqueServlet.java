@@ -21,7 +21,8 @@ public class UniqueServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String userName = request.getParameter("user_name");
         PrintWriter out = response.getWriter();
-        if (userInfoService.unique(userName)){
+        System.out.println(userInfoService.unique(userName));
+        if (!userInfoService.unique(userName)){
             out.write("1");
             out.flush();
             out.close();
